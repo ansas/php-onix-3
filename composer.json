@@ -1,18 +1,8 @@
 {
-    "name": "commonknowledge/onix",
+    "name": "ansas/php-onix-3",
     "description": "An ONIX 3.0 Parser",
     "type": "library",
     "license": "MIT",
-    "authors": [
-        {
-            "name": "Chris Ribal",
-            "email": "c.ribal@ribal-webentwicklung.de"
-        },
-        {
-            "name": "Common Knowledge",
-            "email": "hello@commonknowledge.coop"
-        }
-    ],
     "require": {
         "symfony/serializer": "^5.4",
         "symfony/property-info": "^5.4",
