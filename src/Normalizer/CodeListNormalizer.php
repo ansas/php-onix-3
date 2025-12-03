@@ -35,20 +35,12 @@ class CodeListNormalizer implements NormalizerInterface, DenormalizerInterface
      * @param array $context
      * @return boolean
      */
-    public function supportsNormalization($data, $format = null, array $context = [])
+    public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
     {
         return $data instanceof CodeList;
     }
 
-    /**
-     * Returns the original code of the CodeList
-     *
-     * @param CodeList $data
-     * @param string $format
-     * @param array $context
-     * @return void
-     */
-    public function normalize($data, $format = null, array $context = [])
+    public function normalize(mixed $data, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
     {
         return $data->getCode();
     }
@@ -62,7 +54,7 @@ class CodeListNormalizer implements NormalizerInterface, DenormalizerInterface
      * @param array $context
      * @return boolean
      */
-    public function supportsDenormalization($data, $type, $format = null, array $context = [])
+    public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
     {
         return is_subclass_of($type, CodeList::class);
     }
@@ -77,9 +69,13 @@ class CodeListNormalizer implements NormalizerInterface, DenormalizerInterface
      * @param array $context
      * @return CodeListList
      */
-    public function denormalize($data, $type, $format = null, array $context = [])
+    public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
     {
         return $type::resolve($data, $this->language);
     }
 
+    public function getSupportedTypes(?string $format): array
+    {
+        return [];
+    }
 }

@@ -41,7 +41,7 @@ class Text
      * @param string $format
      * @param string $language
      */
-    public function __construct(string $content, string $format = self::TYPE_DEFAULT, $language = null)
+    public function __construct(string $content = "", string $format = self::TYPE_DEFAULT, $language = null)
     {
 
         if (!in_array($format, [self::TYPE_ASCII, self::TYPE_DEFAULT, self::TYPE_HTML, self::TYPE_XHTML, self::TYPE_XML])) {
